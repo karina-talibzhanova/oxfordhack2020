@@ -89,16 +89,13 @@ function time_notification() {
     title: "Timer",
     message: "You have " + String(seconds) + " seconds to get back to procrastinating."
   });
-  countdown = setInterval(function(){
+  setInterval(function(){
     if (seconds <= 0) {
-      clearInterval(countdown);
+      clearInterval();
     } else {
       seconds -= 1;
-      browser.notifications.update("reee", {
-        type: "basic",
-        title:"Timer",
-        message: "You have " + String(seconds) + " seconds to get back to procrastinating."
-      });
+      console.log(seconds);
+      browser.browserAction.setBadgeText({ text: String(seconds) });
     }
   }, 1000);
 }
