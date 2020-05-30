@@ -14,7 +14,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.wikipedia.org/*"],
+      "matches": ["*://*/*"],
       "js": ["page-eater.js"]
     }
   ],
