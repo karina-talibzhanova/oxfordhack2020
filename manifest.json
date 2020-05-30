@@ -1,20 +1,26 @@
 {
-
+  "description": "Adds browser action icon to toolbar to open packaged web page. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#open-my-page-button",
   "manifest_version": 2,
-  "name": "Borderify YEEEEET",
+  "name": "open-my-page",
   "version": "1.0",
-
-  "description": "Adds a red border to all webpages matching mozilla.org.",
-
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/open-my-page-button",
   "icons": {
-    "48": "icons/border-48.png"
+    "48": "icons/page-48.png"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
   },
 
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["borderify.js"]
+      "matches": ["*://*.wikipedia.org/*"],
+      "js": ["page-eater.js"]
     }
-  ]
+  ],
 
+  "browser_action": {
+    "default_icon": "icons/page-32.png"
+  },
+  "permissions": ["alarms", "tabs", "notifications", "activeTab"]
 }
