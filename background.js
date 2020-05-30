@@ -65,6 +65,7 @@ function action_url(url_init, tabID) {
     browser.browserAction.setBadgeText({ text: "🗙" });
     // create_notification();
     // make_ugly(tabID);
+    time_notification();
   }
 }
 
@@ -79,6 +80,27 @@ function create_notification() {
 function close_tab(tabID) {
   browser.tabs.create({ url: "https://www.facebook.com" });
   browser.tabs.remove(tabID);
+}
+
+function time_notification() {
+  var seconds = 60;
+  browser.notifications.create("reee", {
+    type: "basic",
+    title: "Timer",
+    message: "You have " + String(seconds) + " seconds to get back to procrastinating."
+  });
+  countdown = setInterval(function(){
+    if (seconds <= 0) {
+      clearInterval(countdown);
+    } else {
+      seconds -= 1;
+      browser.notifications.update("reee", {
+        type: "basic",
+        title:"Timer",
+        message: "You have " + String(seconds) + " seconds to get back to procrastinating."
+      });
+    }
+  }, 1000);
 }
 
 // const CSS = "body { background-color: red; }";
