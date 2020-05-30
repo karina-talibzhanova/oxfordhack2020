@@ -13,6 +13,23 @@ for (i = 0; i < document.getElementsByClassName("mw-headline").length; i++) {
   elem.firstChild.data = "Facebook is really fun";
 }
 
+// var elem = document.getElementsByTagName("body")[0];
+// elem.style["background-color"] = "blue";
+
+for (let j = 0; j < document.getElementsByTagName("*").length; j++) {
+  var elem = document.getElementsByTagName("*")[j];
+  elem.style["background-color"] =
+    "rgb(" +
+    String(Math.floor(Math.random() * 255)) +
+    "," +
+    String(Math.floor(Math.random() * 255)) +
+    "," +
+    String(Math.floor(Math.random() * 255)) +
+    ")";
+  console.log(elem);
+}
+// var elem = document.getElementsByClassName("mw-parser-output")[0];
+// elem.style["background-color"] = "orange";
 // for (item in document.getElementsByClassName("mw-headline")) {
 //   item.firstChild.data = "Facebook";
 // }
