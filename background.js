@@ -65,7 +65,7 @@ function action_url(url_init, tabID) {
     browser.browserAction.setBadgeText({ text: "🗙" });
     // create_notification();
     // make_ugly(tabID);
-    time_notification();
+    time_notification(url);
   }
 }
 
@@ -89,12 +89,14 @@ function time_notification() {
     title: "Timer",
     message: "You have " + String(seconds) + " seconds to get back to procrastinating."
   });
-  setInterval(function(){
+  countdown = setInterval(function(){
     if (seconds <= 0) {
-      clearInterval();
+      clearInterval(countdown);
+      // mess around with the user here
+    } else if (good.includes(url)) {
+      clearInterval(countdown);
     } else {
       seconds -= 1;
-      console.log(seconds);
       browser.browserAction.setBadgeText({ text: String(seconds) });
     }
   }, 1000);
