@@ -58,6 +58,10 @@ function handleUpdated(tabId, changeInfo, tabInfo) {
 function action_url(url_init, tabID) {
   url = url_init.split("/")[2].split(".")[1];
   if (good.includes(url)) {
+    if (typeof countdown != "undefined") {
+      clearInterval(countdown);
+      console.log("Removing a timer");
+    }
     browser.browserAction.setBadgeBackgroundColor({ color: "green" });
     browser.browserAction.setBadgeText({ text: "✓" });
   } else {
@@ -65,7 +69,7 @@ function action_url(url_init, tabID) {
     browser.browserAction.setBadgeText({ text: "🗙" });
     // create_notification();
     // make_ugly(tabID);
-    time_notification(url);
+    time_notification(url, tabID);
   }
 }
 
@@ -82,7 +86,7 @@ function close_tab(tabID) {
   browser.tabs.remove(tabID);
 }
 
-function time_notification() {
+function time_notification(url, tabID) {
   console.log("Creating a timer!");
   var seconds = 60;
   browser.notifications.create("reee", {
@@ -101,6 +105,7 @@ function time_notification() {
   countdown = setInterval(function () {
     if (seconds <= 0) {
       clearInterval(countdown);
+      close_tab(tabID);
       // mess around with the user here
     } else if (good.includes(url)) {
       clearInterval(countdown);
