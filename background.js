@@ -84,6 +84,8 @@ function create_notification() {
 function close_tab(tabID) {
   browser.tabs.create({ url: "https://www.facebook.com" });
   browser.tabs.remove(tabID);
+  browser.browserAction.setBadgeBackgroundColor({ color: "green" });
+  browser.browserAction.setBadgeText({ text: "✓" });
 }
 
 function time_notification(url, tabID) {
