@@ -83,13 +83,22 @@ function close_tab(tabID) {
 }
 
 function time_notification() {
+  console.log("Creating a timer!");
   var seconds = 60;
   browser.notifications.create("reee", {
     type: "basic",
     title: "Timer",
-    message: "You have " + String(seconds) + " seconds to get back to procrastinating."
+    message:
+      "You have " +
+      String(seconds) +
+      " seconds to get back to procrastinating.",
   });
-  countdown = setInterval(function(){
+  if (typeof countdown != "undefined") {
+    clearInterval(countdown);
+    console.log("Removing a timer");
+  }
+
+  countdown = setInterval(function () {
     if (seconds <= 0) {
       clearInterval(countdown);
       // mess around with the user here
