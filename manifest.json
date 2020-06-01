@@ -1,9 +1,8 @@
 {
-  "description": "Adds browser action icon to toolbar to open packaged web page. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#open-my-page-button",
+  "description": "Stops you from being so productive all the time",
   "manifest_version": 2,
-  "name": "open-my-page",
+  "name": "Productivity... bud bad",
   "version": "1.0",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/open-my-page-button",
   "icons": {
     "48": "icons/page-48.png"
   },

@@ -1,16 +1,16 @@
-# open-my-page
+# Productivity... but bad
 
-## What it does
+This browser extension was made for Oxford Digithon 2020 and won Most Creative Hack.
 
-This extension includes:
+## What does it do?
 
-* a background script, "background.js"
-* a browser action
-* a page "my-page.html"
+It aims to stop the user from being productive and gets them back to procrastinating on their favourite sites.
 
-All it does is: when the user clicks the button, open "my-page.html" in a new tab.
+Currently, it can:
+* forcefully close the current tab and open a new tab to Facebook
+* change the background colour randomly of every element in a Wikipedia page
+* remove content from a StackOverflow page
 
-## What it shows
+## What's next?
 
-* how to listen for browser action clicks in a background script
-* how to open a page packaged with your extension
+The next steps will involve linking the content script to the background script so that all sites can be affected by its devious methods. There will also be more methods added to really push the user to procrastinating.
